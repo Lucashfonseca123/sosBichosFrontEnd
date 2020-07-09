@@ -14,8 +14,8 @@ const Login = () => {
                 <Container>
                     <Title>Bem-vindo</Title>
                     <ContentMiddle>
-                        <Input placeholder="Digite seu usuário..." />
-                        <Input placeholder="Digite sua senha..." />
+                        <Input placeholder="Usuário" />
+                        <Input placeholder="Senha" />
                         <ButtonContainer>                
                             <Link to="/signIn">
                                 <Button name="Enviar" />

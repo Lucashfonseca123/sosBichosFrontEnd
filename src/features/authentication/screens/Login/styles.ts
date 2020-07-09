@@ -53,7 +53,7 @@ export const Background = styled.div`
 `;
 
 export const ContentMiddle = styled.div`
-    padding: 0 16px 16px;
+    /* padding: 0 16px 16px; */
 `;
 
 export const ButtonContainer = styled.div`

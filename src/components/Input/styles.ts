@@ -6,10 +6,13 @@ interface IContainer {
 }
 
 export const Container = styled.div<IContainer>`
+  display: flex;
+  align-items: center;
+  flex: 0;
   background: #FFF;
   border-radius: 8px;
   padding: 16px 0px 16px 16px;
-  width: 52%;
+  width: 300px;
 
   border: 2px solid #9A9A9C;
   border-color: #9A9A9C;
@@ -26,9 +29,6 @@ export const Container = styled.div<IContainer>`
       color: #9A9A9C;
       border-color: #9A9A9C;
     `}
-
-  display: flex;
-  align-items: center;
 
   & + div {
     margin-top: 8px;
