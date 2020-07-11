@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, useState, useCallback} from "react";
+import React, { InputHTMLAttributes, useState, useCallback, useRef, useEffect} from "react";
 
 import { Container } from "./styles";
 
@@ -6,6 +6,7 @@ interface IInput  extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input = ({...rest}: IInput) => {
+    const inputRef = useRef<HTMLInputElement>(null);
     const [inputFocus, setInputFocus] = useState<boolean>();
     const [inputBlur, setInputBlur] = useState<boolean>();
 
@@ -15,15 +16,15 @@ const Input = ({...rest}: IInput) => {
     }, []);
 
     const handleInputBlur = useCallback(() => {
-        setInputBlur(true);
-        setInputFocus(false);
+        setInputBlur(!inputRef.current?.value);
+        setInputFocus(!!inputRef.current?.value);
     }, [])
 
     return(
         <Container focus={inputFocus} blur={inputBlur} >
-            <input {...rest} onFocus={handleInputFocus} onBlur={handleInputBlur} />
+            <input ref={inputRef} {...rest} onFocus={handleInputFocus} onBlur={handleInputBlur} />
         </Container>
     )
 }
 
-export default Input;
+export default React.forwardRef(Input);

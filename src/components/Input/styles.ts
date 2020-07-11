@@ -38,7 +38,7 @@ export const Container = styled.div<IContainer>`
     background: transparent;
     border: 0;
     width: 100%;
-    color: #9A9A9C;
+    color: #380803;
     font-family: 'SourceSansPro', sans-serif;
     font-weight: 800;
 
