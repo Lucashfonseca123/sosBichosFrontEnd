@@ -4,7 +4,7 @@ import { Container } from './styles';
 const Dash: React.FC = () => {
   return (
     <Container>
-      <p>Registrar Noticia</p>
+      <p>Dash</p>
     </Container>
   );
 };
