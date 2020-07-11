@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { MdHome } from 'react-icons/md';
+import { MdHome, MdPets, MdWeb } from 'react-icons/md';
 import { Container, Content, Board } from './styles';
 import { SideBar, Header, SideBarOption } from '../../components';
 import RegisterPet from './screens/Pets/RegisterPet';
@@ -17,8 +17,13 @@ const Dashboard: React.FC = () => {
     <Container>
       <SideBar isOpen={openSideBar} onClick={handleOpenSideBar}>
         <SideBarOption isOpen={openSideBar} icon={MdHome} title="Dashboard" />
-        <SideBarOption isOpen={openSideBar} icon={MdHome} title="Pets" />
-        <SideBarOption isOpen={openSideBar} icon={MdHome} title="Notícias" />
+        <SideBarOption
+          isOpen={openSideBar}
+          isSelected
+          icon={MdPets}
+          title="Pets"
+        />
+        <SideBarOption isOpen={openSideBar} icon={MdWeb} title="Notícias" />
       </SideBar>
       <Board>
         <Header />

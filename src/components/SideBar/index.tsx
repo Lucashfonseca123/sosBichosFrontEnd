@@ -15,9 +15,6 @@ const Sidebar: React.FC<IProps> = ({ isOpen, children, onClick }) => {
           <img alt="MenuButton" src={menubutton} />
         </button>
       </div>
-      <div className="title">
-        <h3>Menu</h3>
-      </div>
       <ul id="content">{children}</ul>
     </Container>
   );
