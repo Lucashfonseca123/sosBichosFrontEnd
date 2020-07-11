@@ -15,25 +15,25 @@ const Route: React.FC<RouteProps> = ({
   component: Component,
   ...rest
 }) => {
-    const dado = true;
+  const dado = true;
 
-    return (
-        <ReactDOMRoute
-        {...rest}
-        render={({ location }) => {
-            return dado ? (
-            <Component />
-            ) : (
-            <Redirect
-                to={{
-                pathname: isPrivate ? '/' : '/dashboard',
-                state: { from: location },
-                }}
-            />
-            );
-        }}
-        />
-    );
+  return (
+    <ReactDOMRoute
+      {...rest}
+      render={({ location }) => {
+        return dado ? (
+          <Component />
+        ) : (
+          <Redirect
+            to={{
+              pathname: isPrivate ? '/' : '/dashboard',
+              state: { from: location },
+            }}
+          />
+        );
+      }}
+    />
+  );
 };
 
 export default Route;
