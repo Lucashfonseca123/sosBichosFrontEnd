@@ -1,34 +1,33 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import { MdHome, MdPets, MdWeb } from 'react-icons/md';
+import { Switch, Route } from 'react-router-dom';
 import { Container, Content, Board } from './styles';
 import { SideBar, Header, SideBarOption } from '../../components';
 import RegisterPet from './screens/Pets/RegisterPet';
+import AddNew from './screens/News/AddNew';
+import Dash from './screens/Dash';
 
 const Dashboard: React.FC = () => {
-  const [openSideBar, setOpenSideBar] = useState(true);
-
-  const handleOpenSideBar = useCallback(() => {
-    setOpenSideBar((state): boolean => {
-      return !state;
-    });
-  }, []);
-
   return (
     <Container>
-      <SideBar isOpen={openSideBar} onClick={handleOpenSideBar}>
-        <SideBarOption isOpen={openSideBar} icon={MdHome} title="Dashboard" />
+      <SideBar>
         <SideBarOption
-          isOpen={openSideBar}
-          isSelected
-          icon={MdPets}
-          title="Pets"
+          key="dashboard"
+          path="/dashboard"
+          icon={MdHome}
+          title="Dashboard"
         />
-        <SideBarOption isOpen={openSideBar} icon={MdWeb} title="Notícias" />
+        <SideBarOption key="pets" path="/pets" icon={MdPets} title="Pets" />
+        <SideBarOption key="news" path="/news" icon={MdWeb} title="Notícias" />
       </SideBar>
       <Board>
         <Header />
         <Content>
-          <RegisterPet />
+          <Switch>
+            <Route path="/dashboard" component={Dash} />
+            <Route path="/news" component={AddNew} />
+            <Route path="/pets" component={RegisterPet} />
+          </Switch>
         </Content>
       </Board>
     </Container>

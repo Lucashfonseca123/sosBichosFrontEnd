@@ -1,23 +1,51 @@
-import React from 'react';
+import React, {
+  isValidElement,
+  cloneElement,
+  useMemo,
+  useState,
+  useCallback,
+} from 'react';
+import { withRouter } from 'react-router-dom';
 import { Container } from './styles';
 import menubutton from '../../assets/menubutton.svg';
 
-interface IProps {
-  isOpen: boolean;
-  onClick: VoidFunction;
-}
+const Sidebar: React.FC = ({ children }) => {
+  const [openSideBar, setOpenSideBar] = useState(true);
+  const [selectedScreen, setSelectedScreen] = useState('pets');
 
-const Sidebar: React.FC<IProps> = ({ isOpen, children, onClick }) => {
+  const handleOpenSideBar = useCallback(() => {
+    setOpenSideBar((state): boolean => {
+      return !state;
+    });
+  }, []);
+
+  const childrenWithProps = useMemo(() => {
+    const mapedChildrens = React.Children.map(children, (child) => {
+      if (isValidElement(child)) {
+        return cloneElement(child, {
+          key: child.key ? child.key : 'default',
+          isOpen: openSideBar,
+          isSelected: child.key === selectedScreen,
+          onClick: () => {
+            setSelectedScreen(child.key ? String(child.key) : 'default');
+          },
+        });
+      }
+      return child;
+    });
+    return mapedChildrens;
+  }, [children, openSideBar, selectedScreen]);
+
   return (
-    <Container isOpen={isOpen}>
+    <Container isOpen={openSideBar}>
       <div className="header">
-        <button type="button" onClick={onClick}>
+        <button type="button" onClick={handleOpenSideBar}>
           <img alt="MenuButton" src={menubutton} />
         </button>
       </div>
-      <ul id="content">{children}</ul>
+      <ul id="content">{childrenWithProps}</ul>
     </Container>
   );
 };
 
-export default Sidebar;
+export default withRouter(Sidebar);

@@ -4,7 +4,7 @@ interface ISideBar {
   isOpen: boolean;
 }
 
-export const Container = styled.div<ISideBar>`
+export const Container = styled.nav<ISideBar>`
   background: #222d33;
   margin: 0;
   padding: 0;

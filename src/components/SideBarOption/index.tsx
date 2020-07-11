@@ -4,10 +4,13 @@ import { MdChevronLeft } from 'react-icons/md';
 import { Container } from './styles';
 
 export interface IProps {
-  isOpen: boolean;
+  key: string;
+  isOpen?: boolean;
   icon: React.ComponentType<IconBaseProps>;
   title: string;
   isSelected?: boolean;
+  path: string;
+  onClick?: VoidFunction;
 }
 
 const SideBarOption: React.FC<IProps> = ({
@@ -15,9 +18,18 @@ const SideBarOption: React.FC<IProps> = ({
   icon: Icon,
   title,
   isSelected,
+  path,
+  onClick,
+  key,
 }) => {
   return (
-    <Container isOpen={isOpen} isSelected={isSelected || false}>
+    <Container
+      to={path}
+      isOpen={isOpen || false}
+      isSelected={isSelected || false}
+      onClick={onClick}
+      key={key}
+    >
       <div className="icon">{Icon && <Icon />}</div>
       <div className="title">
         <h3>{title}</h3>

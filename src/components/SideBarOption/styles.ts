@@ -1,11 +1,14 @@
 import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 interface ISideBarOption {
   isOpen: boolean;
   isSelected: boolean;
+  to?: string;
+  key: string | number;
 }
 
-export const Container = styled.div<ISideBarOption>`
+export const Container = styled(Link)<ISideBarOption>`
   background: #222d33;
   margin: 0;
   padding: 5px 10px;
