@@ -1,4 +1,4 @@
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 import BackgroundImage from "../../../../assets/background.png";
 
 const appearFromLeft = keyframes`
@@ -16,17 +16,29 @@ export const ContainerGlobal = styled.div`
     display: flex;
 `
 
-export const Container = styled.div`
-    padding: 160px 90px;
+export const ContainerLeft = styled.div`
+    flex: 1;
+    background: url(${BackgroundImage}) no-repeat ;
+    width: 100%;
     animation: ${appearFromLeft} 1s;
+
+    h1 {
+      height: 50%;
+      padding-top: 170px;
+      padding-left: 90px;
+    }
 `;
 
 export const ContainerRight = styled.div`
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
+    flex: 0.7;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 350px;
+      height: 280px;
+    }
 
     strong{
         color: #6D6D6D;
@@ -34,7 +46,7 @@ export const ContainerRight = styled.div`
         font-weight: 300;
 
         & + strong {
-            margin-bottom: 32px;
+            /* margin-bottom: 32px; */
         }
     }
 `;
@@ -42,20 +54,12 @@ export const ContainerRight = styled.div`
 export const Title = styled.h1`
     font-size: 80px;
     color: white;
-    padding-bottom: 100px;
-`;
-
-export const Background = styled.div`
-    flex: 1;
-    background: url(${BackgroundImage}) no-repeat ;
-    background-size: 700px;
-    height: 757px;
 `;
 
 export const ContentMiddle = styled.div`
-    /* padding: 0 16px 16px; */
-`;
+    padding: 0px 90px;
 
-export const ButtonContainer = styled.div`
-    padding-top: 16px;
+    div{
+      padding-top: 16px;
+    }
 `;

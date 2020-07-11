@@ -1,4 +1,4 @@
-import styled, {css} from "styled-components";
+import styled, { css } from "styled-components";
 
 interface IContainer {
   focus: boolean | undefined;
@@ -6,13 +6,12 @@ interface IContainer {
 }
 
 export const Container = styled.div<IContainer>`
-  display: flex;
   align-items: center;
-  flex: 0;
   background: #FFF;
   border-radius: 8px;
   padding: 16px 0px 16px 16px;
   width: 300px;
+  height: 55px;
 
   border: 2px solid #9A9A9C;
   border-color: #9A9A9C;
@@ -22,7 +21,7 @@ export const Container = styled.div<IContainer>`
     css`
       border-color: #B20808;
     `}
-  
+
   ${(props) =>
     props.blur &&
     css`
@@ -48,7 +47,7 @@ export const Container = styled.div<IContainer>`
     props.focus && css`
       color: #B20808;
     `}
-  
+
     ${(props) => props.blur && css`
       color: #9A9A9C;
     `}

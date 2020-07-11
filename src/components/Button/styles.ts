@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     button {
         display:flex;
+        height: 50px;
         background: #b20808;
         margin: 0;
         padding: 16px 0px;
@@ -17,6 +18,6 @@ export const Container = styled.div`
         &:hover {
             background: #8A0707;
         }
-        
+
        }
 `;
